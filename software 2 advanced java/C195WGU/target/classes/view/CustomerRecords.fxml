@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="595.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
+    <!-- Main Container -->
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="570.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" width="685.0" />
+
+    <!-- Header Label -->
+    <Label layoutX="41.0" layoutY="34.0" style="-fx-font-size: 23.0;" text="Customers Records" />
+
+
+    <!-- Customer TableView -->
+    <TableView fx:id="tblCustomerRecords" layoutX="29.0" layoutY="86.0" prefHeight="298.0" prefWidth="657.0">
+        <columns>
+            <TableColumn fx:id="colCustomerId" prefWidth="38.0" text="ID" />
+            <TableColumn fx:id="colCustomerName" prefWidth="144.5" text="Customer Name" />
+            <TableColumn fx:id="colCustomerAddress" prefWidth="214.5" text="Address" />
+            <TableColumn fx:id="colPostalCode" prefWidth="76.5" text="Postal Code" />
+            <TableColumn fx:id="colPhoneNumber" prefWidth="85.0" text="Phone" />
+            <TableColumn fx:id="colFirstLevelData" prefWidth="97.0" text="First Level Data" />
+        </columns>
+    </TableView>
+
+    <!-- Input Fields -->
+    <Label layoutX="62.0" layoutY="400.0" text="Customer ID" />
+    <TextField fx:id="txtCustomerId" editable="false" layoutX="152.0" layoutY="390.0" />
+
+    <Label layoutX="346.0" layoutY="394.0" text="Customer Name" />
+    <TextField fx:id="txtCustomerName" layoutX="445.0" layoutY="390.0" />
+
+    <Label layoutX="32.0" layoutY="427.0" text="Customer Address" />
+    <TextField fx:id="txtCustomerAddress" layoutX="152.0" layoutY="423.0" />
+
+    <Label layoutX="63.0" layoutY="461.0" text="Postal Code" />
+    <TextField fx:id="txtPostalCode" layoutX="152.0" layoutY="458.0" />
+
+    <Label layoutX="386.0" layoutY="428.0" text="Phone" />
+    <TextField fx:id="txtPhoneNumber" layoutX="445.0" layoutY="423.0" />
+
+    <Label layoutX="85.0" layoutY="498.0" text="Country" />
+    <ComboBox fx:id="cmbCountry" layoutX="152.0" layoutY="493.0" onAction="#handleCountrySelection" />
+
+    <Label layoutX="270.0" layoutY="498.0" text="First Level Data" />
+    <ComboBox fx:id="cmbFirstLevelData" layoutX="371.0" layoutY="493.0" />
+
+    <!-- Buttons -->
+    <Button fx:id="btnEdit" layoutX="38.0" layoutY="540.0" onAction="#handleEditCustomer" text="Edit Customer" />
+    <Button fx:id="btnDelete" layoutX="152.0" layoutY="539.0" onAction="#handleDeleteCustomer" text="Delete Customer" />
+    <Button fx:id="btnAdd" layoutX="279.0" layoutY="540.0" onAction="#handleAddCustomer" text="Add New Customer" />
+    <Button fx:id="btnSave" layoutX="502.0" layoutY="540.0" onAction="#handleSaveCustomer" text="Save" />
+    <Button fx:id="btnBack" layoutX="575.0" layoutY="540.0" onAction="#handleBack" text="Back" />
+
+</AnchorPane>

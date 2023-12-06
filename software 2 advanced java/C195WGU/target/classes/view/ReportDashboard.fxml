@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="521.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportDashboardController">
+    <children>
+        <!-- Main Report Label -->
+        <Label layoutX="29.0" layoutY="25.0" text="Reports">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+
+        <!-- Back Button -->
+        <Button fx:id="btnBackToMainMenu" layoutX="767.0" layoutY="468.0" text="Back" onAction="#handleBackToMainMenu" />
+
+        <!-- Main Tab Pane -->
+        <TabPane layoutX="15.0" layoutY="63.0" prefHeight="396.0" prefWidth="848.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <!-- Contact Schedule Tab -->
+                <Tab text="Contact Schedule">
+                    <content>
+                        <AnchorPane>
+                            <ComboBox fx:id="cmbContacts" layoutX="659.0" layoutY="3.0" onAction="#populateAppointmentsByContact" prefWidth="150.0" promptText="Select Contact"/>
+                            <Label layoutX="511.0" layoutY="7.0" text="Appointments by contact:" />
+                            <TableView fx:id="tblAppointments" layoutY="36.0">
+                                <columns>
+                                    <TableColumn fx:id="colAppointmentID" text="Appointment ID" />
+                                    <TableColumn fx:id="colTitle" text="Title" />
+                                    <TableColumn fx:id="colDescription" text="Description" />
+                                    <TableColumn fx:id="colLocation" text="Location" />
+                                    <TableColumn fx:id="colContact" text="Contact" />
+                                    <TableColumn fx:id="colType" text="Type" />
+                                    <TableColumn fx:id="colStartDateTime" text="Start Date/Time" />
+                                    <TableColumn fx:id="colEndDateTime" text="End Date/Time" />
+                                    <TableColumn fx:id="colCustomerID" text="CustomerID" />
+                                </columns>
+                            </TableView>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <!-- Appointment Totals Tab -->
+                <Tab text="Appointment Totals" onSelectionChanged="#onAppointmentTotalsTabSelected">
+                    <content>
+                        <AnchorPane>
+                            <TableView fx:id="tblAppointmentsByType" layoutX="74.0" layoutY="62.0">
+                                <columns>
+                                    <TableColumn fx:id="colAppointmentType" text="Appointment Type" />
+                                    <TableColumn fx:id="colTypeTotal" text="Total" />
+                                </columns>
+                            </TableView>
+                            <TableView fx:id="tblAppointmentsByMonth" layoutX="376.0" layoutY="61.0">
+                                <columns>
+                                    <TableColumn fx:id="colMonth" text="Appointments By Month" />
+                                    <TableColumn fx:id="colMonthTotal" text="Total" />
+                                </columns>
+                            </TableView>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+
+                <!-- Additional Report: Customers by Country -->
+                <Tab text="Customer by Country" onSelectionChanged="#populateCustomersByCountry">
+                    <AnchorPane>
+                        <TableView fx:id="tblCustomersByCountry" layoutX="74.0" layoutY="62.0">
+                            <columns>
+                                <TableColumn fx:id="colCountryName" text="Country Name"/>
+                                <TableColumn fx:id="colCustomerCount" text="Total Customers"/>
+                            </columns>
+                        </TableView>
+                    </AnchorPane>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
